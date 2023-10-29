@@ -1,6 +1,4 @@
-require(dotenv).config();
-
-
+require('dotenv').config();
 const {
   DB_HOSTNAME,
   DB_USERNAME,

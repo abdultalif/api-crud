@@ -4,6 +4,16 @@ const Validator = require("fastest-validator");
 const v = new Validator();
 const { Product } = require('../models');
 
+router.get('/', async (req, res) => {
+    const products = await Product.findAll();
+    res.json(products);
+});
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    const products = await Product.findByPk(id);
+    res.json(products || {});
+});
+
 router.post('/', async (req, res) => {
     const schema = {
         name: "string",
